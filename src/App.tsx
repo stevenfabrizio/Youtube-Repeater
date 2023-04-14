@@ -2,13 +2,23 @@ import React from 'react';
 import YouTube, { YouTubeProps } from 'react-youtube';
 
 const App: React.FC = () => {
+  //store the
+  const [enteredURL, setEnteredURL] = React.useState('NLR3lSrqlww');
+  const [submittedURL, setSubmittedURL] = React.useState('NLR3lSrqlww');
+
+  const handleURL = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+    setSubmittedURL(enteredURL);
+  };
+
   const opts: YouTubeProps['opts'] = {
     height: '390',
     width: '640',
     playerVars: {
       // https://developers.google.com/youtube/player_parameters
-      autoplay: 1,
-      playlist: 'NLR3lSrqlww',
+      modestbranding: 1,
+      autoplay: 0,
+      playlist: submittedURL,
       loop: 1,
     },
   };
@@ -20,9 +30,23 @@ const App: React.FC = () => {
 
   return (
     <>
-      <h1>plylisting</h1>
+      <h1>{enteredURL}</h1>
+      <form onSubmit={handleURL}>
+        <label>
+          {' '}
+          Enter the ID
+          <input
+            type="text"
+            value={enteredURL}
+            onChange={(e) => setEnteredURL(e.target.value)}
+          />
+        </label>
+        <input type="submit" />
+      </form>
+
       <YouTube
-        videoId="NLR3lSrqlww"
+        className="Youtube-Player"
+        videoId={submittedURL}
         // onReady={onPlayerReady}
         opts={opts}
       />
