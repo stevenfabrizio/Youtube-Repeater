@@ -3,6 +3,7 @@ import YouTube, { YouTubeProps } from 'react-youtube';
 
 const App: React.FC = () => {
   //store the
+  //  
   const [enteredURL, setEnteredURL] = React.useState('NLR3lSrqlww');
   const [submittedURL, setSubmittedURL] = React.useState('NLR3lSrqlww');
 
@@ -16,9 +17,9 @@ const App: React.FC = () => {
     width: '640',
     playerVars: {
       // https://developers.google.com/youtube/player_parameters
-      modestbranding: 1,
-      autoplay: 0,
+      // modestbranding: 1,
       playlist: submittedURL,
+      autoplay: 1,
       loop: 1,
     },
   };
@@ -45,10 +46,12 @@ const App: React.FC = () => {
       </form>
 
       <YouTube
+        // https://developers.google.com/youtube/iframe_api_reference#onStateChange
         className="Youtube-Player"
         videoId={submittedURL}
-        // onReady={onPlayerReady}
         opts={opts}
+        onReady={(event) => event.target.playVideo()}
+        onEnd={(event) => event.target.playVideo()}
       />
     </>
   );
