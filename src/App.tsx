@@ -11,27 +11,30 @@ const App: React.FC = () => {
   const regexAddressBar: RegExp = /^(https?\:\/\/)?((www\.)?youtube\.com)\/.+$/;
   const regexShareLink: RegExp = /^(https?\:\/\/)?((www\.)?youtu\.be)\/.+$/;
 
-  //this will load the YT player when user searches a video. starts not loaded.
+  //this will load the YT player when user searches a video. store the input value and the searched link.
   const [toggleYTPlayer, setToggleYTPlayer] = React.useState<boolean>(false);
   const [enteredURL, setEnteredURL] = React.useState<string>('');
   const [submittedURL, setSubmittedURL] = React.useState<string>('');
 
-  //when search is initated, determine which regex is being used and extract the video id. hide player on bad URL.
+  //when search is initated, determine which regex is being used and extract the video id. toast user on bad link.
   const handleURL = (e: { preventDefault: () => void }) => {
     e.preventDefault();
 
     if (enteredURL.match(regexAddressBar)) {
-      setSubmittedURL(enteredURL.split('v=')[1].substring(0, 11));
+      setSubmittedURL(
+        enteredURL.split('youtube.com/watch?v=')[1].substring(0, 11)
+      );
       setToggleYTPlayer(true);
       return;
     }
     if (enteredURL.match(regexShareLink)) {
-      setSubmittedURL(enteredURL.split('.be/')[1].substring(0, 11));
+      setSubmittedURL(enteredURL.split('youtu.be/')[1].substring(0, 11));
       setToggleYTPlayer(true);
       return;
     }
+
     toast('Bad Link!');
-    setToggleYTPlayer(false);
+    // setToggleYTPlayer(false);
   };
 
   const opts: YouTubeProps['opts'] = {
@@ -68,18 +71,9 @@ const App: React.FC = () => {
         </div>
         <h1>Loop YouTube videos.</h1>
         <div></div>
-
-        {/* <h2>
-          enteredURL = {enteredURL} <br /> submittedURL = {submittedURL}
-        </h2>
-        <br />
-        <h2> fxvHapje8DI KJ</h2>
-        <h2>NLR3lSrqlww MC</h2>
-        <h2>XU9FfG0tKV8 spart love theme</h2> */}
       </div>
+
       <form onSubmit={handleURL} className="form">
-        {/* <label>
-          Loop any YouTube videos */}
         <input
           type="text"
           placeholder="Paste YouTube URL here"
@@ -88,14 +82,11 @@ const App: React.FC = () => {
           title="'https://www.youtube.com/watch?v=...' or 'https://youtu.be/...'"
         ></input>
         <img src={Search} alt="Search Button" onClick={handleURL} />
-        {/* </label> */}
-
-        {/* <input type="submit" /> */}
       </form>
-      
+
       {toggleYTPlayer ? (
         <YouTube
-          // https://developers.google.com/youtube/iframe_api_reference#onStateChange
+          // https://developers.google.com/youtube/iframe_api_reference#onStateChange some useful attributes
           className="Youtube-Player"
           videoId={submittedURL}
           opts={opts}
@@ -105,8 +96,17 @@ const App: React.FC = () => {
       ) : (
         <div className="empty"></div>
       )}
+
       <footer>
-        Not all videos will embed. Check sfablink for examples of working links.
+        Not all videos will embed.
+        <a
+          href="https://github.com/stevenfabrizio/Youtube-Repeater/blob/master/src/Links.txt"
+          target="_blank"
+          title="A few URLs that will embed."
+        >
+          &nbsp;Click here&nbsp;
+        </a>
+        for examples of working links.
       </footer>
     </>
   );

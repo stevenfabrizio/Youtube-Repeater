@@ -1,10 +1,16 @@
 // import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-require('./globalstyles.css');
+// import SearchHistory from './components/searchHistory';
+require('./styles/globalstyles.css');
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
-root.render(<App />);
+root.render(
+  <>
+    <App />
+    {/* <SearchHistory /> */}
+  </>
+);
