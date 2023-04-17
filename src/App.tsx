@@ -1,5 +1,10 @@
 import React from 'react';
 import YouTube, { YouTubeProps } from 'react-youtube';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+import Search from './images/search.png';
+import Infinity from './images/infinity.png';
 
 const App: React.FC = () => {
   //two regular expressions for two different link types.
@@ -8,14 +13,10 @@ const App: React.FC = () => {
 
   //this will load the YT player when user searches a video. starts not loaded.
   const [toggleYTPlayer, setToggleYTPlayer] = React.useState<boolean>(false);
-
-  //fxvHapje8DI KJ https://www.youtube.com/watch?v=fxvHapje8DI https://youtu.be/fxvHapje8DI
-  //NLR3lSrqlww MC https://www.youtube.com/watch?v=NLR3lSrqlww https://youtu.be/NLR3lSrqlww
-  //XU9FfG0tKV8 Spart https://www.youtube.com/watch?v=XU9FfG0tKV8 https://youtu.be/XU9FfG0tKV8
   const [enteredURL, setEnteredURL] = React.useState<string>('');
   const [submittedURL, setSubmittedURL] = React.useState<string>('');
 
-  //when search is initated, determine which regex is being used and extract the video id.
+  //when search is initated, determine which regex is being used and extract the video id. hide player on bad URL.
   const handleURL = (e: { preventDefault: () => void }) => {
     e.preventDefault();
 
@@ -29,6 +30,7 @@ const App: React.FC = () => {
       setToggleYTPlayer(true);
       return;
     }
+    toast('Bad Link!');
     setToggleYTPlayer(false);
   };
 
@@ -46,27 +48,51 @@ const App: React.FC = () => {
 
   return (
     <>
-      <h1>
-        enteredURL = {enteredURL} <br /> submittedURL = {submittedURL}
-      </h1>
-      <br />
-      <h2> fxvHapje8DI KJ</h2>
-      <h2>NLR3lSrqlww MC</h2>
-      <h2>XU9FfG0tKV8 spart love theme</h2>
+      <ToastContainer
+        position="top-right"
+        autoClose={1500}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable={false}
+        pauseOnHover={false}
+        theme="light"
+      />
 
-      <form onSubmit={handleURL}>
-        <label>
-          Enter the ID of the YT video
-          <input
-            type="text"
-            value={enteredURL}
-            onChange={(e) => setEnteredURL(e.target.value)}
-          />
-        </label>
-        <input type="submit" />
+      <div className="title">
+        <div></div>
+        <div className="logo-container">
+          <img src={Infinity} alt="Website Logo" />
+        </div>
+        <h1>Loop YouTube videos.</h1>
+        <div></div>
+
+        {/* <h2>
+          enteredURL = {enteredURL} <br /> submittedURL = {submittedURL}
+        </h2>
+        <br />
+        <h2> fxvHapje8DI KJ</h2>
+        <h2>NLR3lSrqlww MC</h2>
+        <h2>XU9FfG0tKV8 spart love theme</h2> */}
+      </div>
+      <form onSubmit={handleURL} className="form">
+        {/* <label>
+          Loop any YouTube videos */}
+        <input
+          type="text"
+          placeholder="Paste YouTube URL here"
+          value={enteredURL}
+          onChange={(e) => setEnteredURL(e.target.value)}
+          title="'https://www.youtube.com/watch?v=...' or 'https://youtu.be/...'"
+        ></input>
+        <img src={Search} alt="Search Button" onClick={handleURL} />
+        {/* </label> */}
+
+        {/* <input type="submit" /> */}
       </form>
-
-      {/* ternary operator hiding or showing YT player */}
+      
       {toggleYTPlayer ? (
         <YouTube
           // https://developers.google.com/youtube/iframe_api_reference#onStateChange
@@ -77,8 +103,11 @@ const App: React.FC = () => {
           onEnd={(e) => e.target.playVideo()}
         />
       ) : (
-        <></>
+        <div className="empty"></div>
       )}
+      <footer>
+        Not all videos will embed. Check sfablink for examples of working links.
+      </footer>
     </>
   );
 };

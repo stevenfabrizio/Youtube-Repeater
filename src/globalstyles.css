@@ -1,3 +1,105 @@
 body {
-  background-color: rgb(25, 161, 161);
+  margin: 0;
+  padding: 0;
+  background-color: rgb(42, 46, 65);
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  text-align: center;
+}
+
+#root {
+  width: 100vw;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto 1fr;
+}
+
+.title {
+  border-top: 6px solid rgb(230, 71, 54);
+  /* linear-gradient(hsl(279, 69%, 71%), hsl(348, 100%, 58%)) */
+
+  display: grid;
+  grid-template-columns: 1fr auto auto 1fr;
+  grid-template-rows: 1fr;
+
+  align-items: center;
+  justify-content: center;
+
+  padding-top: 24px;
+  margin-bottom: 24px;
+  /* margin-bottom: 38px; */
+}
+.logo-container {
+  background: linear-gradient(hsl(24, 100%, 71%), hsl(348, 100%, 58%));
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 12px;
+}
+.title h1 {
+  font-size: 22px;
+  opacity: 0.9;
+  font-weight: 200;
+}
+
+/* THE FORM */
+.form {
+  /* padding: 0px 12px;
+  box-sizing: border-box; */
+  justify-self: center;
+  background-color: white;
+  width: 680px;
+  border-radius: 4px;
+  outline: 1px solid rgb(11, 13, 26);
+  opacity: 0.9;
+
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: 1fr;
+
+  margin-bottom: 38px;
+}
+input {
+  border: none;
+  outline: none;
+  font-weight: bold;
+  font-size: 22px;
+  padding: 12px 18px;
+  color: rgb(31, 41, 51);
+  border-radius: 4px;
+}
+input::placeholder {
+  color: rgb(123, 135, 147);
+  font-style: italic;
+  font-weight: normal;
+  opacity: 0.7;
+}
+
+form img {
+  opacity: 0.7;
+  cursor: pointer;
+  width: 22px;
+  border-radius: 16px;
+  padding: 16px 16px;
+  margin: 2px 4px;
+}
+form img:hover {
+  background-color: rgb(202, 209, 216);
+}
+
+/* YT PLAYER */
+.YT-Player {
+  border-top: 6px solid black;
+  width: 100%;
+  margin-top: 38px;
+}
+
+footer {
+  margin-top: 24px;
+  margin-bottom: 24px;
+  opacity: 0.9;
 }
