@@ -65,7 +65,7 @@ module.exports = {
   //   ],
   // },
 
-  // watch: true,
+  watch: true,
   resolve: {
     extensions: ['.tsx', '.js', '.ts'],
   },
