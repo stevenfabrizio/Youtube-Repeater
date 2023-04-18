@@ -73,7 +73,7 @@ const App: React.FC = () => {
         <div className="logo-container">
           <img src={Infinity} alt="Website Logo" />
         </div>
-        <h1>Loop YouTube videos.</h1>
+        <h1>Repeat YouTube videos.</h1>
         <div></div>
       </div>
 

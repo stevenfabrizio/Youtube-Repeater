@@ -1,5 +1,6 @@
 import React from 'react';
 import { toast } from 'react-toastify';
+import '../styles/searchHistory.css'
 
 interface Props {
   successfulURL: string;
@@ -146,7 +147,7 @@ const searchHistory: React.FC<Props> = (props) => {
       <div className="wrap-collabsible">
         <input id="collapsible" className="toggle" type="checkbox" />
         <label htmlFor="collapsible" className="lbl-toggle">
-          Recently Looped Videos
+          Recently played videos
         </label>
         <div className="collapsible-content">
           <div className="content-inner">

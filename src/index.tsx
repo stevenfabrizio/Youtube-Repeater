@@ -1,8 +1,6 @@
-// import React from 'react';
 import ReactDOM from 'react-dom/client';
+import './styles/globalstyles.css';
 import App from './App';
-// import SearchHistory from './components/searchHistory';
-require('./styles/globalstyles.css');
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -11,6 +9,5 @@ const root = ReactDOM.createRoot(
 root.render(
   <>
     <App />
-    {/* <SearchHistory /> */}
   </>
 );
