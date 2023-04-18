@@ -16,7 +16,7 @@ body {
 }
 
 .title {
-  border-top: 6px solid rgb(230, 71, 54);
+  border-top: 6px solid rgb(234, 41, 27);
   /* linear-gradient(hsl(279, 69%, 71%), hsl(348, 100%, 58%)) */
 
   display: grid;
@@ -31,7 +31,7 @@ body {
   /* margin-bottom: 38px; */
 }
 .logo-container {
-  background: linear-gradient(rgb(255, 166, 107, .8), rgb(255, 41, 84));
+  background: linear-gradient(rgba(226, 129, 65, 0.8), rgb(197, 4, 43));
   border-radius: 50%;
   width: 50px;
   height: 50px;
@@ -39,11 +39,12 @@ body {
   justify-content: center;
   align-items: center;
   margin-right: 12px;
-  outline: 1px solid rgb(18, 23, 10);
+  outline: 1px solid rgb(10, 12, 23);
 }
 .title h1 {
   font-size: 22px;
   opacity: 0.9;
+  text-shadow: 1px 1px rgb(10, 12, 23);
   font-weight: 200;
 }
 
@@ -70,7 +71,7 @@ input {
   font-weight: bold;
   font-size: 22px;
   padding: 12px 18px;
-  color: rgb(31, 41, 51);
+  color: rgb(10, 12, 23);
   border-radius: 4px;
 }
 input::placeholder {
@@ -81,7 +82,7 @@ input::placeholder {
 }
 
 form img {
-  opacity: 0.8;
+  opacity: 0.9;
   cursor: pointer;
   width: 22px;
   border-radius: 16px;
@@ -90,7 +91,7 @@ form img {
   transition: all 0.15s;
 }
 form img:hover {
-  background-color: rgb(202, 209, 216);
+  background-color: rgb(10, 12, 23, .2);
 }
 
 /* YT PLAYER */

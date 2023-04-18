@@ -1,6 +1,6 @@
 import React from 'react';
 import { toast } from 'react-toastify';
-import '../styles/searchHistory.css'
+import '../styles/searchHistory.css';
 
 interface Props {
   successfulURL: string;
@@ -77,10 +77,11 @@ const searchHistory: React.FC<Props> = (props) => {
     toast('Copied');
   };
 
-  //update the items when sent props
+  //update the items when sent props. the counter prevents this from running on inital component render.
   const [counter, setCounter] = React.useState(1);
   React.useEffect(() => {
     setCounter(counter + 1);
+    console.log('check 1231245')
     if (counter > 1) {
       console.log('final thing');
 
@@ -136,6 +137,7 @@ const searchHistory: React.FC<Props> = (props) => {
         });
     }
   }, [props.successfulURL]);
+
   React.useEffect(() => {
     loadLocalStorage();
     setCounter(counter + 2);
@@ -146,9 +148,11 @@ const searchHistory: React.FC<Props> = (props) => {
     <>
       <div className="wrap-collabsible">
         <input id="collapsible" className="toggle" type="checkbox" />
+
         <label htmlFor="collapsible" className="lbl-toggle">
           Recently played videos
         </label>
+
         <div className="collapsible-content">
           <div className="content-inner">
             {title0 != 'a' ? (
