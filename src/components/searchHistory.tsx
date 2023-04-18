@@ -28,6 +28,7 @@ const searchHistory: React.FC<Props> = (props) => {
   const [title8, setTitle8] = React.useState<string>('a');
   const [title9, setTitle9] = React.useState<string>('a');
 
+  //load the contents in the localstorage if it exists.
   const loadLocalStorage = () => {
     const tempArrID: string[] = [];
     const tempArrTitle: string[] = [];
@@ -75,6 +76,7 @@ const searchHistory: React.FC<Props> = (props) => {
     toast('Copied');
   };
 
+  //update the items when sent props
   const [counter, setCounter] = React.useState(1);
   React.useEffect(() => {
     setCounter(counter + 1);
@@ -133,8 +135,6 @@ const searchHistory: React.FC<Props> = (props) => {
         });
     }
   }, [props.successfulURL]);
-
-  //on page load, load local storage
   React.useEffect(() => {
     loadLocalStorage();
     setCounter(counter + 2);
@@ -143,123 +143,142 @@ const searchHistory: React.FC<Props> = (props) => {
 
   return (
     <>
-      {title0 != 'a' ? (
-        <ol type="1">
-          <dt>Recent Searches</dt>
-          {search0 !== 'a' ? (
-            <li
-              className="observable-li"
-              title={search0}
-              onClick={(e) => clickedTitle(e)}
-            >
-              {title0}
-            </li>
-          ) : (
-            <li></li>
-          )}
-          {search1 !== 'a' ? (
-            <li
-              className="observable-li"
-              title={search1}
-              onClick={(e) => clickedTitle(e)}
-            >
-              {title1}
-            </li>
-          ) : (
-            <li></li>
-          )}
-          {search2 !== 'a' ? (
-            <li
-              className="observable-li"
-              title={search2}
-              onClick={(e) => clickedTitle(e)}
-            >
-              {title2}
-            </li>
-          ) : (
-            <li></li>
-          )}
-          {search3 !== 'a' ? (
-            <li
-              className="observable-li"
-              title={search3}
-              onClick={(e) => clickedTitle(e)}
-            >
-              {title3}
-            </li>
-          ) : (
-            <li></li>
-          )}
-          {search4 !== 'a' ? (
-            <li
-              className="observable-li"
-              title={search4}
-              onClick={(e) => clickedTitle(e)}
-            >
-              {title4}
-            </li>
-          ) : (
-            <li></li>
-          )}
-          {search5 !== 'a' ? (
-            <li
-              className="observable-li"
-              title={search5}
-              onClick={(e) => clickedTitle(e)}
-            >
-              {title5}
-            </li>
-          ) : (
-            <li></li>
-          )}
-          {search6 !== 'a' ? (
-            <li
-              className="observable-li"
-              title={search6}
-              onClick={(e) => clickedTitle(e)}
-            >
-              {title6}
-            </li>
-          ) : (
-            <li></li>
-          )}
-          {search7 !== 'a' ? (
-            <li
-              className="observable-li"
-              title={search7}
-              onClick={(e) => clickedTitle(e)}
-            >
-              {title7}
-            </li>
-          ) : (
-            <li></li>
-          )}
-          {search8 !== 'a' ? (
-            <li
-              className="observable-li"
-              title={search8}
-              onClick={(e) => clickedTitle(e)}
-            >
-              {title8}
-            </li>
-          ) : (
-            <li></li>
-          )}
-          {search9 !== 'a' ? (
-            <li
-              className="observable-li"
-              title={search9}
-              onClick={(e) => clickedTitle(e)}
-            >
-              {title9}
-            </li>
-          ) : (
-            <li></li>
-          )}
-        </ol>
-      ) : (
-        <></>
-      )}
+      <div className="wrap-collabsible">
+        <input id="collapsible" className="toggle" type="checkbox" />
+        <label htmlFor="collapsible" className="lbl-toggle">
+          Recently Looped Videos
+        </label>
+        <div className="collapsible-content">
+          <div className="content-inner">
+            {title0 != 'a' ? (
+              <ol type="1">
+                {search0 !== 'a' ? (
+                  <li
+                    className="observable-li"
+                    title={search0}
+                    onClick={(e) => clickedTitle(e)}
+                  >
+                    {title0}
+                  </li>
+                ) : (
+                  <li></li>
+                )}
+                {search1 !== 'a' ? (
+                  <li
+                    className="observable-li"
+                    title={search1}
+                    onClick={(e) => clickedTitle(e)}
+                  >
+                    {title1}
+                  </li>
+                ) : (
+                  <li></li>
+                )}
+                {search2 !== 'a' ? (
+                  <li
+                    className="observable-li"
+                    title={search2}
+                    onClick={(e) => clickedTitle(e)}
+                  >
+                    {title2}
+                  </li>
+                ) : (
+                  <li></li>
+                )}
+                {search3 !== 'a' ? (
+                  <li
+                    className="observable-li"
+                    title={search3}
+                    onClick={(e) => clickedTitle(e)}
+                  >
+                    {title3}
+                  </li>
+                ) : (
+                  <li></li>
+                )}
+                {search4 !== 'a' ? (
+                  <li
+                    className="observable-li"
+                    title={search4}
+                    onClick={(e) => clickedTitle(e)}
+                  >
+                    {title4}
+                  </li>
+                ) : (
+                  <li></li>
+                )}
+                {search5 !== 'a' ? (
+                  <li
+                    className="observable-li"
+                    title={search5}
+                    onClick={(e) => clickedTitle(e)}
+                  >
+                    {title5}
+                  </li>
+                ) : (
+                  <li></li>
+                )}
+                {search6 !== 'a' ? (
+                  <li
+                    className="observable-li"
+                    title={search6}
+                    onClick={(e) => clickedTitle(e)}
+                  >
+                    {title6}
+                  </li>
+                ) : (
+                  <li></li>
+                )}
+                {search7 !== 'a' ? (
+                  <li
+                    className="observable-li"
+                    title={search7}
+                    onClick={(e) => clickedTitle(e)}
+                  >
+                    {title7}
+                  </li>
+                ) : (
+                  <li></li>
+                )}
+                {search8 !== 'a' ? (
+                  <li
+                    className="observable-li"
+                    title={search8}
+                    onClick={(e) => clickedTitle(e)}
+                  >
+                    {title8}
+                  </li>
+                ) : (
+                  <li></li>
+                )}
+                {search9 !== 'a' ? (
+                  <li
+                    className="observable-li"
+                    title={search9}
+                    onClick={(e) => clickedTitle(e)}
+                  >
+                    {title9}
+                  </li>
+                ) : (
+                  <li></li>
+                )}
+                <dt
+                  onClick={() =>
+                    window.scrollTo({
+                      top: 0,
+                      behavior: 'smooth',
+                    })
+                  }
+                >
+                  To Top
+                </dt>
+              </ol>
+            ) : (
+              <></>
+            )}
+          </div>
+        </div>
+      </div>
     </>
   );
 };
