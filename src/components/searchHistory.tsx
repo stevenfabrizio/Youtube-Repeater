@@ -143,119 +143,123 @@ const searchHistory: React.FC<Props> = (props) => {
 
   return (
     <>
-      <ol type="1">
-        <dt>Recent Searches</dt>
-        {search0 !== 'a' ? (
-          <li
-            className="observable-li"
-            title={search0}
-            onClick={(e) => clickedTitle(e)}
-          >
-            {title0}
-          </li>
-        ) : (
-          <li></li>
-        )}
-        {search1 !== 'a' ? (
-          <li
-            className="observable-li"
-            title={search1}
-            onClick={(e) => clickedTitle(e)}
-          >
-            {title1}
-          </li>
-        ) : (
-          <li></li>
-        )}
-        {search2 !== 'a' ? (
-          <li
-            className="observable-li"
-            title={search2}
-            onClick={(e) => clickedTitle(e)}
-          >
-            {title2}
-          </li>
-        ) : (
-          <li></li>
-        )}
-        {search3 !== 'a' ? (
-          <li
-            className="observable-li"
-            title={search3}
-            onClick={(e) => clickedTitle(e)}
-          >
-            {title3}
-          </li>
-        ) : (
-          <li></li>
-        )}
-        {search4 !== 'a' ? (
-          <li
-            className="observable-li"
-            title={search4}
-            onClick={(e) => clickedTitle(e)}
-          >
-            {title4}
-          </li>
-        ) : (
-          <li></li>
-        )}
-        {search5 !== 'a' ? (
-          <li
-            className="observable-li"
-            title={search5}
-            onClick={(e) => clickedTitle(e)}
-          >
-            {title5}
-          </li>
-        ) : (
-          <li></li>
-        )}
-        {search6 !== 'a' ? (
-          <li
-            className="observable-li"
-            title={search6}
-            onClick={(e) => clickedTitle(e)}
-          >
-            {title6}
-          </li>
-        ) : (
-          <li></li>
-        )}
-        {search7 !== 'a' ? (
-          <li
-            className="observable-li"
-            title={search7}
-            onClick={(e) => clickedTitle(e)}
-          >
-            {title7}
-          </li>
-        ) : (
-          <li></li>
-        )}
-        {search8 !== 'a' ? (
-          <li
-            className="observable-li"
-            title={search8}
-            onClick={(e) => clickedTitle(e)}
-          >
-            {title8}
-          </li>
-        ) : (
-          <li></li>
-        )}
-        {search9 !== 'a' ? (
-          <li
-            className="observable-li"
-            title={search9}
-            onClick={(e) => clickedTitle(e)}
-          >
-            {title9}
-          </li>
-        ) : (
-          <li></li>
-        )}
-      </ol>
+      {title0 != 'a' ? (
+        <ol type="1">
+          <dt>Recent Searches</dt>
+          {search0 !== 'a' ? (
+            <li
+              className="observable-li"
+              title={search0}
+              onClick={(e) => clickedTitle(e)}
+            >
+              {title0}
+            </li>
+          ) : (
+            <li></li>
+          )}
+          {search1 !== 'a' ? (
+            <li
+              className="observable-li"
+              title={search1}
+              onClick={(e) => clickedTitle(e)}
+            >
+              {title1}
+            </li>
+          ) : (
+            <li></li>
+          )}
+          {search2 !== 'a' ? (
+            <li
+              className="observable-li"
+              title={search2}
+              onClick={(e) => clickedTitle(e)}
+            >
+              {title2}
+            </li>
+          ) : (
+            <li></li>
+          )}
+          {search3 !== 'a' ? (
+            <li
+              className="observable-li"
+              title={search3}
+              onClick={(e) => clickedTitle(e)}
+            >
+              {title3}
+            </li>
+          ) : (
+            <li></li>
+          )}
+          {search4 !== 'a' ? (
+            <li
+              className="observable-li"
+              title={search4}
+              onClick={(e) => clickedTitle(e)}
+            >
+              {title4}
+            </li>
+          ) : (
+            <li></li>
+          )}
+          {search5 !== 'a' ? (
+            <li
+              className="observable-li"
+              title={search5}
+              onClick={(e) => clickedTitle(e)}
+            >
+              {title5}
+            </li>
+          ) : (
+            <li></li>
+          )}
+          {search6 !== 'a' ? (
+            <li
+              className="observable-li"
+              title={search6}
+              onClick={(e) => clickedTitle(e)}
+            >
+              {title6}
+            </li>
+          ) : (
+            <li></li>
+          )}
+          {search7 !== 'a' ? (
+            <li
+              className="observable-li"
+              title={search7}
+              onClick={(e) => clickedTitle(e)}
+            >
+              {title7}
+            </li>
+          ) : (
+            <li></li>
+          )}
+          {search8 !== 'a' ? (
+            <li
+              className="observable-li"
+              title={search8}
+              onClick={(e) => clickedTitle(e)}
+            >
+              {title8}
+            </li>
+          ) : (
+            <li></li>
+          )}
+          {search9 !== 'a' ? (
+            <li
+              className="observable-li"
+              title={search9}
+              onClick={(e) => clickedTitle(e)}
+            >
+              {title9}
+            </li>
+          ) : (
+            <li></li>
+          )}
+        </ol>
+      ) : (
+        <></>
+      )}
     </>
   );
 };
