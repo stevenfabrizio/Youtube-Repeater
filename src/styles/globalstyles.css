@@ -97,8 +97,23 @@ form img:hover {
   margin-top: 38px;
 }
 
+/* footer */
 footer {
+  align-self: center;
+  justify-self: center;
+  max-width: 680px;
   margin-top: 24px;
   margin-bottom: 24px;
   opacity: 0.9;
+}
+ol {
+  justify-self: center;
+}
+li {
+  text-align: start;
+
+  width: auto;
+}
+.observable-li {
+  cursor: pointer;
 }

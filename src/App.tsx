@@ -2,6 +2,7 @@ import React from 'react';
 import YouTube, { YouTubeProps } from 'react-youtube';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import SearchHistory from './components/searchHistory';
 
 import Search from './images/search.png';
 import Infinity from './images/infinity.png';
@@ -15,6 +16,7 @@ const App: React.FC = () => {
   const [toggleYTPlayer, setToggleYTPlayer] = React.useState<boolean>(false);
   const [enteredURL, setEnteredURL] = React.useState<string>('');
   const [submittedURL, setSubmittedURL] = React.useState<string>('');
+  const [successfulURL, setSuccessfulURL] = React.useState<string>('');
 
   //when search is initated, determine which regex is being used and extract the video id. toast user on bad link.
   const handleURL = (e: { preventDefault: () => void }) => {
@@ -24,11 +26,13 @@ const App: React.FC = () => {
       setSubmittedURL(
         enteredURL.split('youtube.com/watch?v=')[1].substring(0, 11)
       );
+      setSuccessfulURL(enteredURL);
       setToggleYTPlayer(true);
       return;
     }
     if (enteredURL.match(regexShareLink)) {
       setSubmittedURL(enteredURL.split('youtu.be/')[1].substring(0, 11));
+      setSuccessfulURL(enteredURL);
       setToggleYTPlayer(true);
       return;
     }
@@ -80,6 +84,7 @@ const App: React.FC = () => {
           value={enteredURL}
           onChange={(e) => setEnteredURL(e.target.value)}
           title="'https://www.youtube.com/watch?v=...' or 'https://youtu.be/...'"
+          onClick={(e) => e.currentTarget.select()}
         ></input>
         <img src={Search} alt="Search Button" onClick={handleURL} />
       </form>
@@ -98,15 +103,16 @@ const App: React.FC = () => {
       )}
 
       <footer>
-        Not all videos will embed.
+        <SearchHistory successfulURL={successfulURL} />
+        Not all videos will embed.&nbsp;
         <a
           href="https://github.com/stevenfabrizio/Youtube-Repeater/blob/master/src/Links.txt"
           target="_blank"
           title="A few URLs that will embed."
         >
-          &nbsp;Click here&nbsp;
+          Click here
         </a>
-        for examples of working links.
+        &nbsp;for examples of working links.
       </footer>
     </>
   );
