@@ -1,7 +1,10 @@
 /* Part of this CSS for collapseable div is from https://www.digitalocean.com/community/tutorials/css-collapsible but I've altered it for my purposes*/
 
 ol {
+  border-radius: 4px;
+  padding-top: 4px;
   justify-self: center;
+  background-color: rgb(69, 73, 95);
   /* -webkit-mask-image: linear-gradient(
         to bottom,
         rgba(0, 0, 0, 1),
@@ -12,11 +15,15 @@ ol {
     -webkit-mask-position: top, bottom; */
 }
 li {
+  background-color: rgb(69, 73, 95);
   text-align: start;
 
   width: auto;
 
   padding-bottom: 2px;
+  margin-left: 2px;
+  margin-right: 12px;
+  text-overflow:inherit;
 }
 .observable-li {
   cursor: pointer;
@@ -27,15 +34,24 @@ li {
 .observable-li:hover {
   /* background: rgb(255, 41, 84); */
   background: rgb(10, 12, 23);
+  background-color: rgba(0, 0, 0, 0.4);
   border-radius: 2px;
   /* text-shadow: 1px 1px rgb(42, 46, 65); */
 }
 dt {
+  /* align-self: center;
+  justify-self: center;
+  padding: 0;
+  text-align: center;
+  text-justify: center; */
   margin-top: 12px;
   margin-bottom: 12px;
+  padding-bottom: 4px;
   font-size: 14px;
   cursor: pointer;
   user-select: none;
+  /* background-color: red; */
+  margin-right: 24px;
 }
 
 a:-webkit-any-link {
@@ -53,13 +69,14 @@ input[type='checkbox'] {
   user-select: none;
 
   font-size: 22px;
-  text-shadow: 1px 1px rgb(10, 12, 23, .5);
-  outline: 1px solid rgb(10, 12, 23);
+  text-shadow: 1px 1px rgb(42, 46, 65, .5);
+  /* outline: 1px solid rgb(10, 12, 23); */
   text-align: center;
 
   padding: 1rem;
 
-  background: linear-gradient(rgba(226, 129, 65, 0.8), rgb(197, 4, 43));
+  /* background: linear-gradient(rgba(226, 129, 65, 0.8), rgb(197, 4, 43)); */
+  background: linear-gradient( hsl(279, 69%, 71%), hsl(348, 100%, 58%) );
 
   cursor: pointer;
 

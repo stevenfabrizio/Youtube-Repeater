@@ -262,7 +262,7 @@ const searchHistory: React.FC<Props> = (props) => {
                     title={search9}
                     onClick={(e) => clickedTitle(e)}
                   >
-                    {title9}
+                  {title9}
                   </li>
                 ) : (
                   <li></li>
@@ -275,7 +275,7 @@ const searchHistory: React.FC<Props> = (props) => {
                     })
                   }
                 >
-                  To Top
+                To Top
                 </dt>
               </ol>
             ) : (

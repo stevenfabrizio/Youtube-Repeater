@@ -16,7 +16,7 @@ body {
 }
 
 .title {
-  border-top: 6px solid rgb(234, 41, 27);
+  border-top: 6px solid rgb(222, 83, 208);
   /* linear-gradient(hsl(279, 69%, 71%), hsl(348, 100%, 58%)) */
 
   display: grid;
@@ -31,7 +31,8 @@ body {
   /* margin-bottom: 38px; */
 }
 .logo-container {
-  background: linear-gradient(rgba(226, 129, 65, 0.8), rgb(197, 4, 43));
+  /* background: linear-gradient(rgba(226, 129, 65, 0.8), rgb(197, 4, 43)); */
+  background: linear-gradient(hsl(279, 69%, 71%), hsl(348, 100%, 58%));
   border-radius: 50%;
   width: 50px;
   height: 50px;
@@ -39,12 +40,12 @@ body {
   justify-content: center;
   align-items: center;
   margin-right: 12px;
-  outline: 1px solid rgb(10, 12, 23);
+  /* outline: 1px solid rgb(10, 12, 23); */
 }
 .title h1 {
   font-size: 22px;
   opacity: 0.9;
-  text-shadow: 1px 1px rgb(10, 12, 23);
+  /* text-shadow: 1px 1px rgb(10, 12, 23); */
   font-weight: 200;
 }
 
@@ -56,7 +57,7 @@ body {
   background-color: white;
   width: 680px;
   border-radius: 4px;
-  outline: 1px solid rgb(10, 12, 23);
+  /* outline: 1px solid rgb(10, 12, 23); */
   opacity: 0.9;
 
   display: grid;
@@ -91,7 +92,7 @@ form img {
   transition: all 0.15s;
 }
 form img:hover {
-  background-color: rgb(10, 12, 23, .2);
+  background-color: rgb(10, 12, 23, 0.2);
 }
 
 /* YT PLAYER */
