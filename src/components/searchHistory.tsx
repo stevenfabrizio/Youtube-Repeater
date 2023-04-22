@@ -29,14 +29,22 @@ const searchHistory: React.FC<Props> = (props) => {
   const [title8, setTitle8] = React.useState<string>('a');
   const [title9, setTitle9] = React.useState<string>('a');
 
+  //alert user if no recent videos found when clicking button
+  const CheckForVideoList = () => {
+    if (search0 === 'a' && title0 === 'a') {
+      toast('No recently played videos');
+    }
+  };
+
   //load the contents in the localstorage if it exists.
   const loadLocalStorage = () => {
     const tempArrID: string[] = [];
     const tempArrTitle: string[] = [];
 
+    //localstorage is stored as a key value pair
     for (let i = 0; i < 10; i++) {
-      const number = i.toString();
-      const value = localStorage.getItem(number);
+      const key: string = i.toString();
+      const value: string | null = localStorage.getItem(key);
 
       if (typeof value !== 'string') {
         tempArrID.push('a');
@@ -71,20 +79,18 @@ const searchHistory: React.FC<Props> = (props) => {
 
   //copy the youtube link when clicking on the title.
   const clickedTitle = (e: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
-    const ytTitle = e.currentTarget.title;
+    const ytTitle: string = e.currentTarget.title;
 
     navigator.clipboard.writeText(ytTitle);
     toast('Copied');
   };
 
-  //update the items when sent props. the counter prevents this from running on inital component render.
-  const [counter, setCounter] = React.useState(1);
+  //update the list when sent props. the counter prevents this from running on inital component render. starts at 1 and will only execute my function if it is greater than 1.
+  const [counter, setCounter] = React.useState<number>(1);
   React.useEffect(() => {
     setCounter(counter + 1);
-    console.log('check 1231245')
-    if (counter > 1) {
-      console.log('final thing');
 
+    if (counter > 1) {
       setSearch9(search8);
       setSearch8(search7);
       setSearch7(search6);
@@ -127,10 +133,11 @@ const searchHistory: React.FC<Props> = (props) => {
       localStorage.setItem('2title', title1);
       localStorage.setItem('1title', title0);
 
+      //get the video title using valid url
       fetch(
         `https://noembed.com/embed?dataType=json&url=${props.successfulURL}`
       )
-        .then((res) => res.json())
+        .then((response) => response.json())
         .then((data) => {
           setTitle0(data.title);
           localStorage.setItem('0title', data.title);
@@ -138,10 +145,10 @@ const searchHistory: React.FC<Props> = (props) => {
     }
   }, [props.successfulURL]);
 
+  //on component load, load local storage values and increment counter.
   React.useEffect(() => {
     loadLocalStorage();
     setCounter(counter + 2);
-    console.log(counter);
   }, []);
 
   return (
@@ -149,7 +156,11 @@ const searchHistory: React.FC<Props> = (props) => {
       <div className="wrap-collabsible">
         <input id="collapsible" className="toggle" type="checkbox" />
 
-        <label htmlFor="collapsible" className="lbl-toggle">
+        <label
+          htmlFor="collapsible"
+          className="lbl-toggle"
+          onClick={() => CheckForVideoList()}
+        >
           Recently played videos
         </label>
 
@@ -262,7 +273,7 @@ const searchHistory: React.FC<Props> = (props) => {
                     title={search9}
                     onClick={(e) => clickedTitle(e)}
                   >
-                  {title9}
+                    {title9}
                   </li>
                 ) : (
                   <li></li>
@@ -275,7 +286,7 @@ const searchHistory: React.FC<Props> = (props) => {
                     })
                   }
                 >
-                To Top
+                  To Top
                 </dt>
               </ol>
             ) : (

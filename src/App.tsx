@@ -37,7 +37,7 @@ const App: React.FC = () => {
       return;
     }
 
-    toast('Bad Link!');
+    toast('Bad link!');
     // setToggleYTPlayer(false);
   };
 
