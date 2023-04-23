@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap');
+
 body {
   margin: 0;
   padding: 0;
   background-color: rgb(42, 46, 65);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Lato;
   color: white;
   text-align: center;
 }
@@ -16,7 +18,7 @@ body {
 }
 
 .title {
-  border-top: 6px solid rgb(222, 83, 208);
+  border-top: 6px solid rgb(222, 48, 187);
   /* linear-gradient(hsl(279, 69%, 71%), hsl(348, 100%, 58%)) */
 
   display: grid;
@@ -32,7 +34,7 @@ body {
 }
 .logo-container {
   /* background: linear-gradient(rgba(226, 129, 65, 0.8), rgb(197, 4, 43)); */
-  background: linear-gradient(hsl(279, 69%, 71%), hsl(348, 100%, 58%));
+  background: linear-gradient(hsl(279, 74%, 58%), hsl(348, 100%, 58%));
   border-radius: 50%;
   width: 50px;
   height: 50px;
@@ -43,7 +45,7 @@ body {
   /* outline: 1px solid rgb(10, 12, 23); */
 }
 .title h1 {
-  font-size: 22px;
+  font-size: 24px;
   opacity: 0.9;
   /* text-shadow: 1px 1px rgb(10, 12, 23); */
   font-weight: 200;
@@ -69,7 +71,7 @@ body {
 input {
   border: none;
   outline: none;
-  font-weight: bold;
+  /* font-weight: bold; */
   font-size: 22px;
   padding: 12px 18px;
   color: rgb(10, 12, 23);
@@ -78,7 +80,7 @@ input {
 input::placeholder {
   color: rgb(123, 135, 147);
   font-style: italic;
-  font-weight: normal;
+  /* font-weight: normal; */
   opacity: 0.85;
 }
 
@@ -92,7 +94,10 @@ form img {
   transition: all 0.15s;
 }
 form img:hover {
-  background-color: rgb(10, 12, 23, 0.2);
+  filter: invert(100%);
+  /* background-color: rgb(69, 73, 95);
+  background-color: rgb(186, 182, 160); */
+  background-color: rgb(213, 209, 190)
 }
 
 /* YT PLAYER */
